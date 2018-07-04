@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,viewport-fit=cover">
+  <meta name="renderer" content="webkit">
+  <meta name="keywords" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <title>给 Function 添加一个 bind 方法</title>
+</head>
+
+<body>
+  <script>
+    Function.prototype.myBind = function (obj) {
+      let _this = this
+      // console.log(arguments);
+      // console.log([...arguments]);
+      let arg = [...arguments].slice(1)
+      // console.log(arg);
+      return function () {
+        let args = arg.concat([...arguments])
+        _this.apply(obj, args)
+      }
+    }
+    var name = 'hello world'
+    var o = {
+      name: 'hahaha',
+      age: 20
+    }
+    function callName() {
+      console.log(this.name)
+      console.log(arguments);
+    }
+
+    callName()  // hello world
+
+    var newFunc = callName.myBind(o, [1,2,3])
+    newFunc()  // hahaha
+  </script>
+</body>
+
+</html>
