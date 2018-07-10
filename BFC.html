@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BFC</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- BFC垂直方向边距重叠问题 -->
+  <section id="margin">
+    <style>
+      #margin {
+        background: pink;
+        overflow: hidden;
+      }
+
+      p {
+        margin: 5px auto 25px;
+        background: red;
+      }
+    </style>
+    <p>1</p>
+    <div style="overflow: hidden;">
+      <p>2</p>
+    </div>
+    <p>3</p>
+  </section>
+
+  <!-- 兄弟元素为浮动元素，本元素高度大于浮动元素时，内容会重叠 -->
+  <section class="layout" style="margin-top: 20px">
+    <style>
+      .left {
+        float: left;
+        height: 100px;
+        width: 100px;
+        background: pink;
+      }
+      .right {
+        overflow: hidden;
+        height: 110px;
+        background: red;
+      }
+    </style>
+    <div class="left"></div>
+    <div class="right"></div>
+  </section>
+
+  <!-- 浮动元素父元素的高度不会根据浮动元素高度变化 -->
+  <section style="overflow: hidden">
+    <div style="float: left">浮动元素父元素的高度不会根据浮动元素高度变化</div>
+  </section>
+</body>
+
+</html>

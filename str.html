@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,viewport-fit=cover">
+  <meta name="renderer" content="webkit">
+  <meta name="keywords" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <title>关于字符串的知识</title>
+</head>
+
+<body>
+  <script>
+    // 实现 String.trim() 方法
+    String.prototype.myTrim = function () {
+      return this.replace(/(^\s*)|(\s*$)/g, '');
+    }
+
+    // 去除字符串中所有空格
+    String.prototype.myAllTrim = function () {
+      return this.replace(/\s/g, '');
+    }
+  </script>
+</body>
+
+</html>

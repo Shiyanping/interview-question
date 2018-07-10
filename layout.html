@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Layout</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    section {
+      margin-bottom: 10px;
+    }
+
+    article>div {
+      min-height: 100px
+    }
+
+    .left,
+    .right {
+      width: 300px;
+      background: blue;
+    }
+
+    .float .left {
+      float: left;
+    }
+
+    .float .right {
+      float: right;
+    }
+
+    .center {
+      background: yellow;
+    }
+
+    .position>article>div {
+      position: absolute;
+    }
+
+    .position .left {
+      left: 0;
+    }
+
+    .position .right {
+      right: 0;
+    }
+
+    .position .center {
+      left: 300px;
+      right: 300px;
+    }
+
+    .flexbox {
+      margin-top: 120px;
+    }
+
+    .flexbox>article {
+      display: flex;
+    }
+
+    .flexbox .center {
+      flex: 1;
+    }
+
+    .table>article {
+      width: 100%;
+      display: table;
+    }
+
+    .table>article>div {
+      display: table-cell;
+    }
+
+    .grid>article {
+      display: grid;
+      grid-template-rows: 100px;
+      grid-template-columns: 300px auto 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 浮动布局 -->
+  <section class="float">
+    <article>
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="center">
+        <h2>浮动解决方案</h2>
+        三栏布局，左右各300px，中间自适应
+        <p>三栏布局，左右各300px，中间自适应</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- 定位 -->
+  <section class="position">
+    <article>
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="center">
+        <h2>定位解决方案</h2>
+        三栏布局，左右各300px，中间自适应
+        <p>三栏布局，左右各300px，中间自适应</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- flexbox -->
+  <section class="flexbox">
+    <article>
+      <div class="left"></div>
+      <div class="center">
+        <h2>flexbox解决方案</h2>
+        三栏布局，左右各300px，中间自适应
+        <p>三栏布局，左右各300px，中间自适应</p>
+      </div>
+      <div class="right"></div>
+    </article>
+  </section>
+
+  <!-- table -->
+  <section class="table">
+    <article>
+      <div class="left"></div>
+      <div class="center">
+        <h2>table解决方案</h2>
+        三栏布局，左右各300px，中间自适应
+        <p>三栏布局，左右各300px，中间自适应</p>
+      </div>
+      <div class="right"></div>
+    </article>
+  </section>
+
+  <!-- grid -->
+  <section class="grid">
+    <article>
+      <div class="left"></div>
+      <div class="center">
+        <h2>grid解决方案</h2>
+        三栏布局，左右各300px，中间自适应
+        <p>三栏布局，左右各300px，中间自适应</p>
+      </div>
+      <div class="right"></div>
+    </article>
+  </section>
+
+</body>
+
+</html>
