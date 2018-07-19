@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,viewport-fit=cover">
+  <meta name="renderer" content="webkit">
+  <meta name="keywords" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <title>Promise</title>
+</head>
+
+<body>
+  <script>
+    function loadImg(src) {
+      var promise = new Promise((resolve, reject) => {
+        var img = document.createElement('img')
+        // throw new Error('test')
+        img.onload = function() {
+          resolve(img)
+        }
+        img.onerror = function() {
+          reject('图片不存在')
+        }
+        img.src = src
+      })
+      return promise
+    }
+
+    var src1 = 'http://images.coohua.com/upload/1bd6b717-8694-45f3-93a2-9766997524fe.jpg'
+    var result1 = loadImg(src1)
+    var src2 = 'http://images.coohua.com/upload/05139321-df16-44d4-bd35-55db7d298a421.jpg'
+    var result2 = loadImg(src2)
+
+    result1.then(img => {
+      console.log('1,' + img.width);
+      return result2
+    }).then(img => {
+      console.log('2.' + img.width);
+    }).catch(error => {
+      console.log(error);
+    })
+  </script>
+</body>
+
+</html>
