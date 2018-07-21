@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,viewport-fit=cover">
+  <meta name="renderer" content="webkit">
+  <meta name="keywords" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <title>Title</title>
+</head>
+
+<body>
+  <script>
+    // var obj = {};
+    // var name = 'yanping';
+    // Object.defineProperty(obj, 'name', {
+    //   get: function() {
+    //     console.log('get');
+    //     return name;
+    //   },
+    //   set: function(newValue) {
+    //     console.log('set');
+    //     name = newValue;
+    //   }
+    // });
+    // console.log(obj.name);   // get
+    // obj.name = 'shi'  // set
+    var vm = {};
+    var data = {
+      name: 'shi',
+      age: 20
+    };
+    var key;
+    for (key in data) {
+      (function (key) {
+        Object.defineProperty(vm, key, {
+          get: function () {
+            console.log('get');
+            return data[key];
+          },
+          set: function (newValue) {
+            console.log('set');
+            data[key] = newValue;
+          }
+        });
+      })(key);
+    }
+  </script>
+</body>
+
+</html>

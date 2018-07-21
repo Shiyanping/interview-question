@@ -1,6 +1,6 @@
 # 常见的前端基础题
 
-## CSS方面
+## 一、CSS 方面
 
 ### Q：css 画一个扇形
 
@@ -14,13 +14,13 @@ layout.html
 
 BFC.html
 
-- BFC垂直方向边距重叠问题
+- BFC 垂直方向边距重叠问题
 
 - 兄弟元素为浮动元素，本元素高度大于浮动元素时，内容会重叠
 
 - 浮动元素父元素的高度不会根据浮动子元素高度变化而变化
 
-## JS方面
+## 二、JS 方面
 
 ### Q：typeof 输出的类型
 
@@ -38,7 +38,7 @@ bind.html
 
 closure.html
 
-- JS 实现一个闭包函数,每次调用都自增1
+- JS 实现一个闭包函数,每次调用都自增 1
 
 ### Q：手写一个通用的事件绑定方法
 
@@ -46,7 +46,7 @@ event.html
 
 ### Q：最优的原型继承
 
-prototype.html
+oop.html
 
 ### Q：数组的各种排序问题
 
@@ -72,12 +72,36 @@ str.html
 
 - 判断一个回文字符串和同字母异序字符串
 
+### Q：作用域问题
+
+scope.js
+
+### Q：Promise 相关问题
+
+promise.html
+
 ### Q：手写简单的 zepto 原型案例
 
-zepto
+zepto 文件夹
 
-### Q：关于jquery的知识
+### Q：关于 jquery 的知识
 
-jquery
+jquery 文件夹
 
-- 手写简单的 jquery 原型案例 - jquery.html
+- jquery.html - 手写简单的 jquery 原型案例
+
+- deferred.html - jQuery 中如何解决无限回调的问题
+
+### Q：虚拟 dom
+
+vdom 文件夹
+
+- jquery-vdom.html - jquery 如何操作 dom
+
+- snabbdom.html - 使用 snabbdom 实现操作 vdom
+
+### Q：MVVM 相关问题
+
+mvvm 文件夹
+
+- mvvm.html - mvvm 中通过 [Object.defineProperty](<https://msdn.microsoft.com/library/ff800817(v=vs.94).aspx>) 实现响应式
