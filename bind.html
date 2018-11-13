@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,viewport-fit=cover" />
+    <meta name="renderer" content="webkit" />
+    <meta name="keywords" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <title>给 Function 添加一个 bind 方法</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,viewport-fit=cover">
-  <meta name="renderer" content="webkit">
-  <meta name="keywords" content="">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-  <meta http-equiv="x-dns-prefetch-control" content="on">
-  <title>给 Function 添加一个 bind 方法</title>
-</head>
+  <body>
+    <script>
+      Function.prototype.myBind = function(obj) {
+        let _this = this;
+        let arg = [...arguments].slice(1);
+        return function() {
+          let args = arg.concat([...arguments]);
+          _this.apply(obj, args);
+        };
+      };
 
-<body>
-  <script>
-    Function.prototype.myBind = function (obj) {
-      let _this = this
-      let arg = [...arguments].slice(1)
-      return function () {
-        let args = arg.concat([...arguments])
-        _this.apply(obj, args)
+      // Function.prototype.myBind2 = function(oThis) {
+      //   var _this = this;
+      //   var arg = Array.prototype.slice.call(arguments, 1);
+      //   return function() {
+      //     _this.apply(oThis, arg.concat(Array.prototype.slice.call(arguments)));
+      //   };
+      // };
+      var name = 'hello world';
+      var o = {
+        name: 'hahaha',
+        age: 20
+      };
+      function callName() {
+        console.log(this.name);
+        console.log(arguments);
       }
-    }
-    var name = 'hello world'
-    var o = {
-      name: 'hahaha',
-      age: 20
-    }
-    function callName() {
-      console.log(this.name)
-      console.log(arguments);
-    }
 
-    callName()  // hello world
+      callName(); // hello world
 
-    var newFunc = callName.myBind(o, [1,2,3])
-    newFunc()  // hahaha
-  </script>
-</body>
-
+      var newFunc = callName.myBind(o, [1, 2, 3]);
+      newFunc(); // hahaha
+    </script>
+  </body>
 </html>
